@@ -29,7 +29,7 @@ let questions = [
         "answer_2": "Ein bedeutender Politiker Kroatiens",
         "answer_3": "Ein Erfinder, Physiker und Elektroingenieur",
         "answer_4": "Ein Elon Musk",
-        "right_answer": 4
+        "right_answer": 3
     },
     {
         "question": "Auf wen geht das tiefenpsychologische Konzept der Archetypen und das des kollektiven Unbewussten zurück?",
@@ -92,11 +92,18 @@ function init() {
 function showquestion() {
     let question = questions[currentQuestion];
 
-    document.getElementById('question').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+    if (currentQuestion >= questions.length) {
+        document.getElementById('quiz_active').style = 'display:none';
+        document.getElementById('quiz_finished').style = '';
+    } else {
+
+        document.getElementById('question_number').innerHTML = currentQuestion + 1;
+        document.getElementById('question').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
 }
 
 function answer(selection) {
@@ -116,4 +123,20 @@ function answer(selection) {
     document.getElementById('button_nextq').disabled = false;
 }
 
+function nextQuestion() {
+    currentQuestion++;
+    document.getElementById('button_nextq').disabled = true;
+    resetAnswercards();
+    showquestion();
+}
 
+function resetAnswercards() {
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+}

@@ -29,7 +29,11 @@
     <div class="card_container">
         <div class="card quiz-card">
             <img src="img/brainbg.jpg" class="card-img-top">
-            <div class="card-body">
+            <div class="card-body" id="quiz_finished" style="display: none">
+                Quiz beendet!
+            </div>
+
+            <div class="card-body" id="quiz_active">
                 <h5 class="card-title" id="question">Frage</h5>
 
                 <div class="card mb-2">
@@ -58,9 +62,10 @@
 
                 <div class="quiz_footer">
                     <span>
-                        <b>1</b> von <b id="question_amount"></b> Fragen
+                        <b id="question_number">1</b> von <b id="question_amount"></b> Fragen
                     </span>
-                    <button id="button_nextq" type="button" class="btn btn-primary" disabled>Nächste Frage</button>
+                    <button id="button_nextq" type="button" class="btn btn-primary" onclick="nextQuestion()"
+                        disabled>Nächste Frage</button>
                 </div>
 
             </div>
