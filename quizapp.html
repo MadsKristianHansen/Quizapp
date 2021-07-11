@@ -30,15 +30,23 @@
         <div class="card quiz-card">
             <img src="img/brainbg.jpg" class="card-img-top" id="topimage">
 
+            <div id="quiz_finished_img" class="finish_img card-body" style="display: none">
+                <img  src="img/brain result.png">
+            </div>
+
+            <div class="progress">
+                <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
+            </div>
+
             <div class="card-body finished-body" id="quiz_finished" style="display: none">
-                <div>
-                    <img src="img/brain result.png">
-                </div>
+                
                 <div class="finished_announcement">
                     <b>Quiz beendet!</b>
                 </div>
                 <div class="finished_text">
-                    Du hast <b id="correct_answers">XXX</b> Fragen von <b id="finished_question_amount">XXX</b> richtig beantwortet!
+                    Du hast <b id="correct_answers">XXX</b> Fragen von <b id="finished_question_amount">XXX</b> richtig
+                    beantwortet!
                 </div>
                 <button class="btn btn-primary">Erneut spielen</button>
 

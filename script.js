@@ -92,11 +92,17 @@ function init() {
 
 function showquestion() {
     let question = questions[currentQuestion];
+    let percent = currentQuestion / questions.length;
+    percent = Math.round(percent * 100);
+
+    document.getElementById('progress').innerHTML =`${percent}%`;
+    document.getElementById('progress').style = `width: ${percent}%`;
 
     if (currentQuestion >= questions.length) {
         document.getElementById('quiz_active').style = 'display:none';
         document.getElementById('quiz_finished').style = '';
         document.getElementById('topimage').style='display: none';
+        document.getElementById('quiz_finished_img').style = '';
         document.getElementById('finished_question_amount').innerHTML = questions.length;
         document.getElementById('correct_answers').innerHTML = correctAnswers;
         

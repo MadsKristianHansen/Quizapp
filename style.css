@@ -51,3 +51,9 @@ body {
     margin-bottom: 40px;
     font-size: 18px;
 }
+
+.finish_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
