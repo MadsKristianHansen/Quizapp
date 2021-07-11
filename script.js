@@ -83,6 +83,8 @@ let questions = [
 
 let currentQuestion = 0;
 let correctAnswers = 0;
+let AUDIO_CORRECT = new Audio('audio/correct.mp3');
+let AUDIO_WRONG = new Audio('audio/wrong.mp3');
 
 function init() {
     document.getElementById('question_amount').innerHTML = questions.length;
@@ -124,11 +126,13 @@ function answer(selection) {
 
     if (selectedAnswerNumber == question['right_answer']) {
         console.log('richtige Antwort!');
+        AUDIO_CORRECT.play();
         document.getElementById(selection).parentNode.classList.add('bg-success');
         correctAnswers++;
     }
     else {
         console.log('falsche Antwort!');
+        AUDIO_WRONG.play();
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
     }
