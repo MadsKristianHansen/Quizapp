@@ -95,17 +95,17 @@ function showquestion() {
     let percent = currentQuestion / questions.length;
     percent = Math.round(percent * 100);
 
-    document.getElementById('progress').innerHTML =`${percent}%`;
+    document.getElementById('progress').innerHTML = `${percent}%`;
     document.getElementById('progress').style = `width: ${percent}%`;
 
     if (currentQuestion >= questions.length) {
         document.getElementById('quiz_active').style = 'display:none';
         document.getElementById('quiz_finished').style = '';
-        document.getElementById('topimage').style='display: none';
+        document.getElementById('topimage').style = 'display: none';
         document.getElementById('quiz_finished_img').style = '';
         document.getElementById('finished_question_amount').innerHTML = questions.length;
         document.getElementById('correct_answers').innerHTML = correctAnswers;
-        
+
     } else {
 
         document.getElementById('question_number').innerHTML = currentQuestion + 1;
@@ -151,4 +151,16 @@ function resetAnswercards() {
     document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+}
+
+function restart() {
+    document.getElementById('quiz_active').style = '';
+    document.getElementById('quiz_finished').style = 'display:none';
+    document.getElementById('topimage').style = '';
+    document.getElementById('quiz_finished_img').style = 'display: none';
+
+    currentQuestion = 0;
+    correctAnswers = 0;
+
+    init();
 }
