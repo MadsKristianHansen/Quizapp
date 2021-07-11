@@ -82,6 +82,7 @@ let questions = [
 ]
 
 let currentQuestion = 0;
+let correctAnswers = 0;
 
 function init() {
     document.getElementById('question_amount').innerHTML = questions.length;
@@ -95,6 +96,10 @@ function showquestion() {
     if (currentQuestion >= questions.length) {
         document.getElementById('quiz_active').style = 'display:none';
         document.getElementById('quiz_finished').style = '';
+        document.getElementById('topimage').style='display: none';
+        document.getElementById('finished_question_amount').innerHTML = questions.length;
+        document.getElementById('correct_answers').innerHTML = correctAnswers;
+        
     } else {
 
         document.getElementById('question_number').innerHTML = currentQuestion + 1;
@@ -114,6 +119,7 @@ function answer(selection) {
     if (selectedAnswerNumber == question['right_answer']) {
         console.log('richtige Antwort!');
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        correctAnswers++;
     }
     else {
         console.log('falsche Antwort!');

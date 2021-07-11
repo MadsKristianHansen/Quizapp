@@ -28,9 +28,20 @@
 
     <div class="card_container">
         <div class="card quiz-card">
-            <img src="img/brainbg.jpg" class="card-img-top">
-            <div class="card-body" id="quiz_finished" style="display: none">
-                Quiz beendet!
+            <img src="img/brainbg.jpg" class="card-img-top" id="topimage">
+
+            <div class="card-body finished-body" id="quiz_finished" style="display: none">
+                <div>
+                    <img src="img/brain result.png">
+                </div>
+                <div class="finished_announcement">
+                    <b>Quiz beendet!</b>
+                </div>
+                <div class="finished_text">
+                    Du hast <b id="correct_answers">XXX</b> Fragen von <b id="finished_question_amount">XXX</b> richtig beantwortet!
+                </div>
+                <button class="btn btn-primary">Erneut spielen</button>
+
             </div>
 
             <div class="card-body" id="quiz_active">
